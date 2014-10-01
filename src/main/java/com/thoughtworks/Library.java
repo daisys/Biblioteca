@@ -13,6 +13,7 @@ public class Library {
     }
 
     public void printBookList() {
+        printStream.println("Welcome!");
         for (String book : books) {
             printStream.println(book);
         }

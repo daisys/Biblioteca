@@ -10,34 +10,40 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 public class TestLibrary {
+    public static final String aBook = "aaaaa";
+    public static final String anotherBook = "bbbbb";
     List<String> books;
-    Library lib;
+    Library library;
     PrintStream printStream;
 
     @Before
     public void setUp(){
         books = new ArrayList<String>();
         printStream = mock(PrintStream.class);
-        lib =  new Library(printStream, books);
+        library =  new Library(printStream, books);
     }
 
     @Test
     public void shouldPrintOneTitleWhenOneBookInList(){
-        books.add("The Cat in the Hat");
-        lib.printBookList();
+        books.add(aBook);
+        library.printBookList();
 
-        verify(printStream).println("The Cat in the Hat");
+        verify(printStream).println(aBook);
     }
 
     @Test
     public void shouldPrintTwoTitlesWhenTwoBooksList(){
-        books.add("The Cat in the Hat");
-        books.add("The Lord of the Rings");
-        lib.printBookList();
+        books.add(aBook);
+        books.add(anotherBook);
+        library.printBookList();
 
-        verify(printStream).println("The Cat in the Hat");
-        verify(printStream).println("The Lord of the Rings");
+        verify(printStream).println(aBook);
+        verify(printStream).println(anotherBook);
     }
 
-
+    @Test
+    public void shouldPrintWelcomeMessage(){
+        library.printBookList();
+        verify(printStream).println(contains("Welcome"));
+    }
 }
