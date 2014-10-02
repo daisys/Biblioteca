@@ -12,10 +12,13 @@ public class Library {
         this.books = books;
     }
 
-    public void printBookList() {
+    public void welcomeUser() {
         printStream.println("Welcome!");
+    }
+
+    public void printBookList() {
         for (Book book : books) {
-            printStream.println(book.formatDetails());
+            printStream.println(book.details());
         }
     }
 
