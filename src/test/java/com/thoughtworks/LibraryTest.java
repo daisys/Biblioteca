@@ -47,11 +47,5 @@ public class LibraryTest {
         verify(printStream).println("xxx");
     }
 
-    @Test
-    public void shouldPrintWelcomeMessage(){
-        library.welcomeUser();
-        verify(printStream).println(contains("Welcome"));
-    }
-
 
 }

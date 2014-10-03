@@ -13,7 +13,11 @@ public class Menu {
         this.printStream = printStream;
     }
 
-    public void display() {
+    public void welcomeUser() {
+        printStream.println("Welcome!");
+    }
+
+    public void displayBooks() {
         printStream.println("[L]ist books");
     }
 }

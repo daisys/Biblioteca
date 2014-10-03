@@ -12,10 +12,6 @@ public class Library {
         this.books = books;
     }
 
-    public void welcomeUser() {
-        printStream.println("Welcome!");
-    }
-
     public void printBookList() {
         for (Book book : books) {
             printStream.println(book.details());
