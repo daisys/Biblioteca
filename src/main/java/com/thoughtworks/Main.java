@@ -10,12 +10,15 @@ public class Main {
 
     public static void main(String[] args) {
         List<Book> books = new ArrayList<Book>();
-        Menu menu = new Menu(System.out);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
 
         books.add(new Book("The Cat in the Hat", "Dr", "2222"));
 
         Library lib = new Library(System.out, books);
+
+        Menu menu = new Menu(System.out, lib);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
         menu.welcomeUser();
         menu.listOptions();
         menu.readUserSelection(bufferedReader);

@@ -25,10 +25,6 @@ public class LibraryTest {
         book2 = mock(Book.class);
     }
 
-    //TODO
-    //Variable argument function for library-building
-    //And for library-verifying
-
     @Test
     public void shouldPrintOneBookWhenOneBookInList(){
         createBooks("zzz");

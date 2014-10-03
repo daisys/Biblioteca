@@ -19,11 +19,17 @@ import static org.hamcrest.Matchers.is;
 public class MenuTest {
     PrintStream printStream;
     Menu menu;
+    BufferedReader bufferedReader;
+    Library library;
+
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
-        menu = new Menu(printStream);
+        library = mock(Library.class);
+        menu = new Menu(printStream, library);
+        bufferedReader = mock(BufferedReader.class);
+
     }
 
     @Test
@@ -42,12 +48,18 @@ public class MenuTest {
     @Test
     public void shouldReadUserSelection() throws IOException {
 
-
-        BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("L");
         String option = menu.readUserSelection(bufferedReader);
 
         assertThat(option, is("L"));
 
+    }
+
+    @Test
+    public void shouldListBooksWhenUserSelectsL() {
+
+        menu.selectOption("L");
+
+        verify(library).printBookList();
     }
 }

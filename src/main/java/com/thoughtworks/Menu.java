@@ -10,9 +10,12 @@ import java.io.PrintStream;
 public class Menu {
 
     private final PrintStream printStream;
+    private final Library library;
 
-    public Menu(PrintStream printStream) {
+    public Menu(PrintStream printStream, Library library
+    ) {
         this.printStream = printStream;
+        this.library = library;
     }
 
     public void welcomeUser() {
@@ -39,5 +42,9 @@ public class Menu {
             e.printStackTrace();
         }
         return selection;
+    }
+
+    public void selectOption(String option) {
+        library.printBookList();
     }
 }
