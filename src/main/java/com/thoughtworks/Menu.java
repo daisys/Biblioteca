@@ -23,26 +23,28 @@ public class Menu {
     }
 
     public void listOptions() {
-        printStream.println("[L]ist books");
+
+        printStream.println("Choose from the following options:");
+        printStream.println("1: List books");
     }
 
     public void chooseOption(BufferedReader bufferedReader){
 
-        String selection = new String();
+         int selection = readLine(bufferedReader);
 
-         selection = readLine(bufferedReader, selection);
-
-        if(selection == "L")  library.printBookList();
+        if(selection == 1)  library.printBookList();
   }
 
 
-    private String readLine(BufferedReader bufferedReader, String selection) {
+    private Integer readLine(BufferedReader bufferedReader) {
+        String selection = new String();
         try {
             selection = bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return selection;
+
+        return Integer.parseInt(selection);
     }
 
 

@@ -13,6 +13,7 @@ public class Library {
     }
 
     public void printBookList() {
+        printStream.println(String.format("%-40s %-20s %-4s", "Title", "Author", "Year"));
         for (Book book : books) {
             printStream.println(book.details());
         }

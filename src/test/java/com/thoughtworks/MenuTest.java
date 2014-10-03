@@ -35,8 +35,8 @@ public class MenuTest {
     @Test
     public void shouldDisplayListBooksInMenu(){
         menu.listOptions();
-
-        verify(printStream).println("[L]ist books");
+        verify(printStream).println("Choose from the following options:");
+        verify(printStream).println("1: List books");
     }
 
     @Test
@@ -46,8 +46,8 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldListBooksWhenUserEntersL() throws IOException {
-        when(bufferedReader.readLine()).thenReturn("L");
+    public void shouldListBooksWhenUserEnters1() throws IOException {
+        when(bufferedReader.readLine()).thenReturn("1");
         menu.chooseOption(bufferedReader);
 
         verify(library).printBookList();

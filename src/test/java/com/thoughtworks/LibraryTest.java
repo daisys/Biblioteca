@@ -31,7 +31,7 @@ public class LibraryTest {
 
         library.printBookList();
 
-        verifyBooks("zzz");
+        verifyEachBookIsPrinted("zzz");
     }
 
     @Test
@@ -40,10 +40,11 @@ public class LibraryTest {
 
         library.printBookList();
 
-        verifyBooks("zzz", "xxx");
+        verify(printStream).println("Title                                    Author               Year");
+        verifyEachBookIsPrinted("zzz", "xxx");
     }
 
-    private void verifyBooks(String... names) {
+    private void verifyEachBookIsPrinted(String... names) {
         for (String name : names) {
             verify(printStream).println(name);
         }
