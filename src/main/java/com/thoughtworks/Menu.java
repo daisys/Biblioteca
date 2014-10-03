@@ -35,6 +35,10 @@ public class Menu {
         return selection;
     }
 
+    public void selectOption(String option) {
+        library.printBookList();
+    }
+
     private String readLine(BufferedReader bufferedReader, String selection) {
         try {
             selection = bufferedReader.readLine();
@@ -44,7 +48,5 @@ public class Menu {
         return selection;
     }
 
-    public void selectOption(String option) {
-        library.printBookList();
-    }
+
 }
