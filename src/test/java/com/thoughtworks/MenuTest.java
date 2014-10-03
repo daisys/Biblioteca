@@ -46,19 +46,9 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReadUserSelection() throws IOException {
-
+    public void shouldListBooksWhenUserEntersL() throws IOException {
         when(bufferedReader.readLine()).thenReturn("L");
-        String option = menu.readUserSelection(bufferedReader);
-
-        assertThat(option, is("L"));
-
-    }
-
-    @Test
-    public void shouldListBooksWhenUserSelectsL() {
-
-        menu.selectOption("L");
+        menu.chooseOption(bufferedReader);
 
         verify(library).printBookList();
     }

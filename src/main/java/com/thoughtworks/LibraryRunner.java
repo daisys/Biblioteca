@@ -1,9 +1,6 @@
 package com.thoughtworks;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryRunner {
@@ -13,7 +10,7 @@ public class LibraryRunner {
     private Menu menu;
     private Library library;
 
-    public LibraryRunner(BufferedReader bufferedReader, List<Book> books) {
+    public LibraryRunner(BufferedReader bufferedReader, List<Book> books, Menu menu) {
         this.bufferedReader = bufferedReader;
         this.books = books;
     }
@@ -24,7 +21,7 @@ public class LibraryRunner {
 
         menu.welcomeUser();
         menu.listOptions();
-        menu.selectOption(menu.readUserSelection(bufferedReader));
+        menu.chooseOption(bufferedReader);
     }
 
 }

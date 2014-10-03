@@ -16,7 +16,10 @@ public class Main {
         List<Book> books = new ArrayList<Book>();
         books.add(new Book("The Cat in the Hat", "Dr", "2222"));
 
-        LibraryRunner libraryRunner = new LibraryRunner(bufferedReader, books);
+        Library library = new Library(System.out, books);
+
+        Menu menu = new Menu(System.out, library);
+        LibraryRunner libraryRunner = new LibraryRunner(bufferedReader, books, menu);
         libraryRunner.run();
     }
 }

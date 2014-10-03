@@ -26,18 +26,15 @@ public class Menu {
         printStream.println("[L]ist books");
     }
 
-    public String readUserSelection(BufferedReader bufferedReader){
+    public void chooseOption(BufferedReader bufferedReader){
 
         String selection = new String();
 
-        selection = readLine(bufferedReader, selection);
+         selection = readLine(bufferedReader, selection);
 
-        return selection;
-    }
+        if(selection == "L")  library.printBookList();
+  }
 
-    public void selectOption(String option) {
-        library.printBookList();
-    }
 
     private String readLine(BufferedReader bufferedReader, String selection) {
         try {
