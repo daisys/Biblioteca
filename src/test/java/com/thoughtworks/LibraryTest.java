@@ -25,26 +25,40 @@ public class LibraryTest {
         book2 = mock(Book.class);
     }
 
+    //TODO
+    //Variable argument function for library-building
+    //And for library-verifying
+
     @Test
     public void shouldPrintOneBookWhenOneBookInList(){
-        books.add(book1);
-        when(book1.details()).thenReturn("zzz");
+        createBooks("zzz");
+
         library.printBookList();
 
-        verify(printStream).println("zzz");
+        verifyBooks("zzz");
     }
 
     @Test
-    public void shouldPrintTwoTitlesWhenTwoBooksList(){
-        books.add(book1);
-        books.add(book2);
-        when(book1.details()).thenReturn("zzz");
-        when(book2.details()).thenReturn("xxx");
+    public void shouldPrintTwoBooksWhenTwoBooksInList(){
+        createBooks("zzz", "xxx");
 
         library.printBookList();
 
-        verify(printStream).println("zzz");
-        verify(printStream).println("xxx");
+        verifyBooks("zzz", "xxx");
+    }
+
+    private void verifyBooks(String... names) {
+        for (String name : names) {
+            verify(printStream).println(name);
+        }
+    }
+
+    private void createBooks(String... names) {
+        for (String name : names) {
+            Book book = mock(Book.class);
+            when(book.details()).thenReturn(name);
+            books.add(book);
+        }
     }
 
 
