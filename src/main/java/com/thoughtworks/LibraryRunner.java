@@ -13,6 +13,7 @@ public class LibraryRunner {
     public LibraryRunner(BufferedReader bufferedReader, List<Book> books, Menu menu) {
         this.bufferedReader = bufferedReader;
         this.books = books;
+        this.menu = menu;
     }
 
     public void run() {

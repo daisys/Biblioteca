@@ -33,6 +33,7 @@ public class Menu {
          int selection = readLine(bufferedReader);
 
         if(selection == 1)  library.printBookList();
+        if(selection <1 || selection>1) printStream.println("Select a valid option!");
   }
 
 

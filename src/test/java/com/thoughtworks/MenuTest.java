@@ -52,4 +52,11 @@ public class MenuTest {
 
         verify(library).printBookList();
     }
+
+    @Test
+    public void shouldPrintErrorMessageWhenUserSelectsInvalidOption() throws IOException {
+        when(bufferedReader.readLine()).thenReturn("-1");
+        menu.chooseOption(bufferedReader);
+        verify(printStream).println("Select a valid option!");
+    }
 }
